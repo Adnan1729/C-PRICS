@@ -373,7 +373,9 @@ See examples/cyclic_tops_classification.ipynb for detailed usage examples.
 Please read CONTRIBUTING.md for details on our code of conduct and the process for submitting pull requests.
 
 ## License
-[Add appropriate license information]
+This project is private and is not intended for public use, distribution, or reproduction. Unauthorized access, sharing, or redistribution of any part of this repository is strictly prohibited.
+
+If you have any questions or wish to request access, please contact the repository owner.
 
 ## Authors
 - Adnan Mahmud
