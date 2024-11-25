@@ -145,36 +145,207 @@ CT-Analysis-Pipeline/
             # - analyze_temporal_evolution()
 ```
 
-## Pseudo Code
+# Cyclic Tops Classification System - Algorithm Overview
+
+## System Configuration
+```python
+Configuration Parameters:
+- CHANNEL: Default "18_top_right"
+- Input/Output Paths
+- Distance Threshold: 5.0 meters
+- Overlap Threshold: 30%
+- Number of Clusters: 5
+- Interpolation Points: 100
+- Risk Smoothing Factor: 0.7
+- Risk Adjustment Maximum: 0.2
+
+Feature Weights:
+- Peak Amplitude: 0.3
+- Average Y: 0.1
+- Distance Difference: 0.1
+- Pattern Width: 0.15
+- Area Under Curve: 0.15
+- Mean Slope: 0.1
+- Max Slope: 0.1
 ```
-Algorithm: C-PRICS Main Pipeline
 
-Input: Raw CT Data CSV Files
-Output: Risk Predictions and Analysis Reports
+## Algorithm Components
 
-Phase 1: Signal Processing & Risk Scoring
-1. For each input file:
-   a. Detect peaks above threshold
-   b. Analyze peak triplets
-   c. Extract features (width, amplitude, area, slopes)
-   d. Standardize feature vectors
-   e. Apply K-means clustering
-   f. Calculate risk scores
+### 1. Signal Processing and Feature Extraction
 
-Phase 2: Pattern Evolution
-1. For each identified pattern:
-   a. Track pattern islands across time
-   b. Calculate growth rates
-   c. Detect pattern merging/splitting
-   d. Analyze spatial drift
+```python
+def process_single_file(file_path):
+    1. Load CT data from CSV
+    2. For each CT channel:
+        a. Extract channel-specific data
+        b. Identify peak regions:
+            - Find consecutive peaks above threshold
+            - Group peaks into islands (3+ consecutive peaks)
+            - Calculate triplet scores for each group
+        c. Store peak information:
+            - Location
+            - Amplitude
+            - Island ID
+    3. Return processed data frame
 
-Phase 3: Predictive Analytics
-1. For each tracked pattern:
-   a. Create feature sequences
-   b. Feed into LSTM model
-   c. Generate risk trajectories
-   d. Calculate crossing probabilities
+def extract_features(island_data):
+    1. Fit cubic spline to data points
+    2. Calculate key features:
+        - Peak amplitude
+        - Average signal value
+        - Pattern width
+        - Center location
+        - Mean and max slopes
+        - Area under curve
+        - Distance metrics
+    3. Return feature dictionary
 ```
+
+### 2. Island Identification System
+
+```python
+class IslandIdentifier:
+    def calculate_overlap(island1, island2):
+        1. Calculate intersection of location ranges
+        2. Compute overlap ratio
+        3. Return overlap percentage
+
+    def find_matches(new_island):
+        1. Get active islands in system
+        2. For each existing island:
+            a. Calculate location differences
+            b. Compute overlap percentage
+            c. Generate confidence score
+        3. Return matches sorted by confidence
+
+    def register_islands(new_data):
+        1. Check for potential splits/merges
+        2. Process each new island:
+            If no match found:
+                Register as new island
+            If match found:
+                Update existing island record
+        3. Return updated island registry
+```
+
+### 3. Risk Analysis System
+
+```python
+class RiskAnalyzer:
+    def train_model(historical_data):
+        1. Prepare feature set:
+            - Scale features
+            - Apply feature weights
+        2. Train KMeans classifier
+        3. Calculate risk scores for clusters
+
+    def predict_risk(island_features):
+        1. Scale new features
+        2. Apply feature weights
+        3. Determine cluster
+        4. Calculate base risk
+        5. Apply adjustments:
+            - Point-specific modifications
+            - Temporal smoothing
+        6. Return final risk score
+
+class TrajectoryPredictor:
+    def prepare_sequences(historical_data):
+        1. Create training sequences
+        2. Scale features
+        3. Initialize LSTM model
+
+    def predict_future(island_data, days=90):
+        1. Process recent data
+        2. Generate predictions:
+            For each future step:
+                a. Predict next risk score
+                b. Update sequence
+        3. Return risk trajectory
+```
+
+### 4. Main Processing Pipeline
+
+```python
+def main_pipeline():
+    1. Initialize Systems:
+        - Create IslandIdentifier
+        - Initialize RiskAnalyzer
+        - Setup TrajectoryPredictor
+
+    2. First Processing Pass:
+        For each input file:
+            a. Process raw signals
+            b. Extract features
+            c. Identify islands
+            d. Store initial results
+
+    3. Risk Analysis:
+        a. Train risk model
+        b. Second pass through files:
+            - Calculate risk scores
+            - Update island records
+        c. Generate combined summary
+
+    4. Evolution Analysis:
+        a. Train LSTM predictor
+        b. Analyze patterns:
+            - Growth rates
+            - Risk trajectories
+            - Threshold crossings
+        c. Generate visualizations
+
+    5. Output Generation:
+        - Save processed data
+        - Generate summary reports
+        - Create visualization plots
+        - Export system metadata
+```
+
+## Error Handling and Validation
+
+```python
+Throughout all operations:
+1. Input Validation:
+    - Check data format
+    - Verify numerical ranges
+    - Validate timestamps
+
+2. Processing Safeguards:
+    - Handle missing data
+    - Catch calculation exceptions
+    - Implement numerical stability checks
+
+3. Output Validation:
+    - Verify risk score ranges (0-1)
+    - Validate prediction timelines
+    - Ensure data consistency
+```
+
+## System Outputs
+
+```python
+1. Processed Data:
+    - Island identification records
+    - Feature calculations
+    - Risk assessments
+
+2. Analysis Results:
+    - Evolution patterns
+    - Risk predictions
+    - Threshold crossing estimates
+
+3. Visualizations:
+    - Time series plots
+    - Risk heat maps
+    - Evolution patterns
+
+4. Summary Reports:
+    - System performance metrics
+    - Risk distribution analysis
+    - Prediction confidence levels
+```
+
 
 ## Installation
 ```bash
