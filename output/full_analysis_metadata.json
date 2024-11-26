@@ -1,0 +1,79 @@
+{
+    "channel": "18_top_right",
+    "files_processed": 14,
+    "total_islands": 187,
+    "unique_islands": 79,
+    "number_of_clusters": 5,
+    "cluster_risks": [
+        0.17416082322935808,
+        0.07585818002124355,
+        0.9241418199787566,
+        0.08589741647127976,
+        0.12742701183977956
+    ],
+    "feature_weights": {
+        "peak_amplitude": 0.3,
+        "average_y": 0.1,
+        "distance_difference": 0.1,
+        "pattern_width": 0.15,
+        "area_under_curve": 0.15,
+        "mean_slope": 0.1,
+        "max_slope": 0.1
+    },
+    "risk_smoothing_factor": 0.7,
+    "risk_adjustment_max": 0.2,
+    "date_range": [
+        "2020-12-03",
+        "2022-12-01"
+    ],
+    "processing_date": "2024-11-25 05:48:31",
+    "configuration": {
+        "CHANNEL": "18_top_right",
+        "INPUT_DIR": "/Workspace/Users/amahmud1@networkrail.co.uk/CT/CT_processed_data/",
+        "OUTPUT_BASE_DIR": "/Workspace/Users/amahmud1@networkrail.co.uk/CT",
+        "PHASE1_DIR": "/Workspace/Users/amahmud1@networkrail.co.uk/CT/CT_phase1",
+        "PHASE3_DIR": "/Workspace/Users/amahmud1@networkrail.co.uk/CT/CT_phase3",
+        "ISLAND_DISTANCE_THRESHOLD": 5.0,
+        "ISLAND_OVERLAP_THRESHOLD": 0.3,
+        "NUM_CLUSTERS": 5,
+        "INTERPOLATION_POINTS": 100,
+        "FEATURE_WEIGHTS": {
+            "peak_amplitude": 0.3,
+            "average_y": 0.1,
+            "distance_difference": 0.1,
+            "pattern_width": 0.15,
+            "area_under_curve": 0.15,
+            "mean_slope": 0.1,
+            "max_slope": 0.1
+        },
+        "RISK_SMOOTHING_FACTOR": 0.7,
+        "RISK_ADJUSTMENT_MAX": 0.2
+    },
+    "risk_score_statistics": {
+        "mean": 0.20464027453362024,
+        "std": 0.06694021559805631,
+        "min": 0.15203144327955556,
+        "max": 0.7684979363913442,
+        "volatility": 0.013287844761984722
+    },
+    "threshold_analysis": {
+        "total_islands": 11,
+        "islands_crossing_thresholds": {
+            "0.9": {
+                "already_crossed": 0,
+                "will_cross": 0,
+                "wont_cross": 11
+            },
+            "1.0": {
+                "already_crossed": 0,
+                "will_cross": 0,
+                "wont_cross": 11
+            }
+        },
+        "average_days_to_threshold": {
+            "0.9": NaN,
+            "1.0": NaN
+        }
+    },
+    "temporal_analysis_completed": true
+}
