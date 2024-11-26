@@ -1,17 +1,12 @@
-# ct_analysis/__init__.py
+# ct_analysis/analysis/__init__.py
 """
-CT Analysis Pipeline
-A machine learning pipeline for analyzing Cyclic Tops (CT) data.
+Analysis module for CT Analysis Pipeline.
+Handles various types of analysis on CT data.
 """
 
-__version__ = '0.1.0'
-__author__ = 'Your Name'
-__email__ = 'your.email@example.com'
-
-from . import preprocessing
-from . import feature_extraction
-from . import identification
-from . import analysis
-from . import models
-from . import visualization
-from . import utils
+from .ct_analyzer import CTAnalyzer
+from .temporal_analyzer import TemporalEvolutionAnalyzer
+from .threshold_analyzer import (
+    predict_threshold_crossing,
+    analyze_threshold_crossings
+)
