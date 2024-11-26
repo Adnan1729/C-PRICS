@@ -1,0 +1,19 @@
+{
+    "total_islands": 11,
+    "islands_crossing_thresholds": {
+        "0.9": {
+            "already_crossed": 0,
+            "will_cross": 0,
+            "wont_cross": 11
+        },
+        "1.0": {
+            "already_crossed": 0,
+            "will_cross": 0,
+            "wont_cross": 11
+        }
+    },
+    "average_days_to_threshold": {
+        "0.9": NaN,
+        "1.0": NaN
+    }
+}

@@ -1,0 +1,12 @@
+global_id,start_location,end_location,last_measurement_date,current_risk_score,threshold_0.9_crossed,threshold_0.9_crossing_date,days_until_0.9,threshold_1.0_crossed,threshold_1.0_crossing_date,days_until_1.0,risk_velocity,risk_acceleration,min_days_to_threshold
+IS_0003,147353.2333333333,147406.1,2021-11-04,0.25922921872767096,False,Not Within Prediction Window,,False,Not Within Prediction Window,,0.0001347959,6.723403930664062e-05,inf
+IS_0005,154408.36666666667,154444.26666666666,2021-11-04,0.18220039607071514,False,Not Within Prediction Window,,False,Not Within Prediction Window,,-4.196167e-05,-4.063546657562256e-05,inf
+IS_0007,166987.0,167027.84999999998,2022-12-01,0.19385858706446704,False,Not Within Prediction Window,,False,Not Within Prediction Window,,0.0004069656,-0.0002882033586502075,inf
+IS_0009,191703.125,191740.65,2022-07-14,0.1609493828021129,False,Not Within Prediction Window,,False,Not Within Prediction Window,,-0.00015626848,0.00011876225471496582,inf
+IS_0012,193149.33333333334,193203.16666666666,2022-12-01,0.23504162108536758,False,Not Within Prediction Window,,False,Not Within Prediction Window,,0.0026312917,-0.000281408429145813,inf
+IS_0013,194567.8,194629.475,2022-12-01,0.18959120676810212,False,Not Within Prediction Window,,False,Not Within Prediction Window,,0.0005288422,-0.0003261864185333252,inf
+IS_0029,193465.08,193502.36000000002,2022-07-14,0.23806108319365515,False,Not Within Prediction Window,,False,Not Within Prediction Window,,-0.0017189085,0.0017989873886108398,inf
+IS_0030,194699.175,194754.775,2022-12-01,0.23363889914951153,False,Not Within Prediction Window,,False,Not Within Prediction Window,,0.0023869723,-0.0016793906688690186,inf
+IS_0031,188914.76,189012.8,2022-12-01,0.18109874183609467,False,Not Within Prediction Window,,False,Not Within Prediction Window,,-7.630885e-05,-6.908178329467773e-05,inf
+IS_0032,192733.08571428573,192791.17142857143,2022-12-01,0.1923712770473442,False,Not Within Prediction Window,,False,Not Within Prediction Window,,0.00021377206,0.00015203654766082764,inf
+IS_0086,145862.8333333333,145898.33333333334,2022-12-01,0.20869750657228048,False,Not Within Prediction Window,,False,Not Within Prediction Window,,0.0016433299,-0.0015856027603149414,inf
